@@ -35,7 +35,6 @@ int main()
 		}
 		anim.tick(time);
 		window.clear();
-		anim.set("run");
 		anim.drawAnim(window, 100, 100);
 		window.display();
 

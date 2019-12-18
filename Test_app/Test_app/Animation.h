@@ -69,6 +69,10 @@ public:
 	//void play(std::string name) { animationList[name].isPlaying = true; }
 
 	bool isPlaying() { return animationList[currentAnim].isPlaying;}
+
+	float getH() { return animationList[currentAnim].frames[0].height; }
+
+	float getW() { return animationList[currentAnim].frames[0].width; }
 };
 
 void AnimationManager::createAnim(std::string name, Texture& texture, int x, int y, int w, int h, int count, float speed, int step = 0) {

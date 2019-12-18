@@ -41,5 +41,8 @@
     <ClInclude Include="..\..\..\Game\Test_app\source\TinyXML\tinystr.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
