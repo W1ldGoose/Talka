@@ -1,0 +1,35 @@
+<!DOCTYPE SpriteDecomposer>
+<sprites image="knight.png" transparentColor="FFFFFF">
+ <animation title="stand" delay="150">
+  <cut w="19" x="14" y="7" h="29" row="1" col="1"/>
+  <cut w="17" x="66" y="6" h="30" row="1" col="1"/>
+  <cut w="19" x="115" y="6" h="30" row="1" col="1"/>
+  <cut w="20" x="163" y="7" h="29" row="1" col="1"/>
+ </animation>
+ <animation title="sit" delay="150">
+  <cut w="19" x="216" y="15" h="21" row="1" col="1"/>
+  <cut w="20" x="265" y="14" h="22" row="1" col="1"/>
+  <cut w="19" x="315" y="15" h="21" row="1" col="1"/>
+  <cut w="17" x="17" y="52" h="21" row="1" col="1"/>
+ </animation>
+ <animation title="run" delay="150">
+  <cut w="20" x="67" y="45" h="28" row="1" col="1"/>
+  <cut w="20" x="116" y="46" h="27" row="1" col="1"/>
+  <cut w="20" x="166" y="48" h="25" row="1" col="1"/>
+  <cut w="23" x="217" y="45" h="28" row="1" col="1"/>
+  <cut w="20" x="266" y="46" h="27" row="1" col="1"/>
+  <cut w="20" x="316" y="48" h="25" row="1" col="1"/>
+ </animation>
+ <animation title="jump" delay="150">
+  <cut w="20" x="15" y="86" h="24" row="1" col="1"/>
+  <cut w="20" x="65" y="88" h="22" row="1" col="1"/>
+  <cut w="19" x="117" y="81" h="27" row="1" col="1"/>
+  <cut w="21" x="164" y="79" h="23" row="1" col="1"/>
+  <cut w="15" x="218" y="82" h="20" row="1" col="1"/>
+  <cut w="23" x="264" y="84" h="17" row="1" col="1"/>
+  <cut w="18" x="320" y="84" h="20" row="1" col="1"/>
+  <cut w="23" x="14" y="124" h="17" row="1" col="1"/>
+  <cut w="17" x="68" y="112" h="31" row="1" col="1"/>
+  <cut w="17" x="118" y="113" h="30" row="1" col="1"/>
+ </animation>
+</sprites>

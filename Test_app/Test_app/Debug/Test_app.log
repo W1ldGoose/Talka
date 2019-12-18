@@ -1,0 +1,13 @@
+﻿  main.cpp
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(35,8): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(78,24): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(90,51): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(90,48): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(120,25): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(136,42): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(136,42): warning C4244:         with
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(136,42): warning C4244:         [
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(136,42): warning C4244:             T=int
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Animation.h(136,42): warning C4244:         ]
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(25,14): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  Test_app.vcxproj -> C:\Users\wildg\source\repos\Platformer\Test_app\Debug\Test_app.exe
