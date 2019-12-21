@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Animation.h"
+#include "Level.h"
 
 using namespace sf;
 
@@ -15,6 +16,7 @@ public:
 	bool hit;//?
 	bool life, dir;
 	float timer, timer_end;
+	std::vector<Object> obj;
 	std::string Name;
 	int health;
 
@@ -50,7 +52,7 @@ Entity::Entity(AnimationManager& a, int X, int Y)
 //отрисовка для всех производных классов будет одинаковой
 void Entity::draw(RenderWindow& window)
 {
-	anim.drawAnim(window, x, y);
+	anim.drawAnim(window, x, y+h);
 }
 
 //firstAnim = "stand" - ?

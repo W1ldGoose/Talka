@@ -1,10 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
 #include "Player.h"
+#include "Level.h"
 using namespace sf;
 
 int main()
 {
+	Level lvl;
+	lvl.LoadFromFile("LEVEL_0.tmx");
+	Object pl = lvl.GetObject("PLAYER");
+
 	RenderWindow window(sf::VideoMode(600, 400), "SFML works!");
 	Texture test;
 
@@ -15,7 +20,7 @@ int main()
 	anim.loadFromXML("source/test_sprite.xml", test);
 	Clock clock;
 	 
-	Player player(anim, 100, 100);
+	Player player(anim,lvl, 100, 100);
 	while (window.isOpen()) {
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
@@ -37,6 +42,7 @@ int main()
 
 		anim.tick(time);
 		window.clear();
+		lvl.Draw(window);
 		player.draw(window);
 		window.display();
 	}

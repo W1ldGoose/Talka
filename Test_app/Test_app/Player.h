@@ -14,13 +14,16 @@ public:
 
 	void Animation(float time);
 
+	void collision(int num);
+
 	void update(float time);
-	Player(AnimationManager& a, int x, int y);
+	Player(AnimationManager& a,Level& lev, int x, int y);
 };
 
-Player::Player(AnimationManager& a, int x, int y) : Entity(a, x, y) {
+Player::Player(AnimationManager& a,Level& lev, int x, int y) : Entity(a, x, y) {
 	option("PLAYER", 0, 100, "stand");
 	state = stand;
+	obj = lev.GetAllObjects();
 }
 
 //дописать разные состояния и учесть вариант, когда клавиши не нажаты
@@ -75,11 +78,27 @@ void Player::Animation(float time)
 	if (dir) anim.flip();
 	anim.tick(time);
 }
+void Player::collision(int num) {
+	for (int i = 0; i < obj.size(); i++)
+		if (getRect().intersects(obj[i].rect))
+		{
+			if (obj[i].name == "solid")
+			{
+				if (dy > 0 && num == 1) { y = obj[i].rect.top - h;  dy = 0;   state = stand; }
+				if (dy < 0 && num == 1) { y = obj[i].rect.top + obj[i].rect.height;   dy = 0; }
+				if (dx > 0 && num == 0) { x = obj[i].rect.left - w; }
+				if (dx < 0 && num == 0) { x = obj[i].rect.left + obj[i].rect.width; }
+			}
+		}
+}
 
 void Player::update(float time) {
 	CheckKey();
 	Animation(time);
 	dy += 0.0005 * time;
 
-
+	x += dx * time;
+	collision(0);
+	y += dy * time;
+	collision(1);
 }
