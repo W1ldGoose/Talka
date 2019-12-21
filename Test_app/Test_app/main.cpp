@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
+#include "Player.h"
 using namespace sf;
 
 int main()
@@ -9,18 +10,12 @@ int main()
 
 	test.loadFromFile("files/knight.png");
 
-	/* увеличение мастштаба спрайта в 2 раза
-	Sprite sprite;
-	sprite.setTexture(test);
-	sprite.setTextureRect(IntRect(14, 6, 20, 30));
-	sprite.setScale(2.f, 2.f);
-	*/
-
 	AnimationManager anim;
 
 	anim.loadFromXML("source/test_sprite.xml", test);
 	Clock clock;
-
+	 
+	Player player(anim, 100, 100);
 	while (window.isOpen()) {
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
@@ -33,11 +28,17 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 		}
+		player.update(time);
+
+		if (Keyboard::isKeyPressed(Keyboard::Left)) player.key["LEFT"] = true;
+		if (Keyboard::isKeyPressed(Keyboard::Right)) player.key["RIGHT"] = true;
+		if (Keyboard::isKeyPressed(Keyboard::Up)) player.key["UP"] = true;
+		if (Keyboard::isKeyPressed(Keyboard::Down)) player.key["DOWN"] = true;
+
 		anim.tick(time);
 		window.clear();
-		anim.drawAnim(window, 100, 100);
+		player.draw(window);
 		window.display();
-
 	}
 	return 0;
 }
