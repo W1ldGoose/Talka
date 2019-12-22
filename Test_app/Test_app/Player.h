@@ -61,6 +61,13 @@ void Player::CheckKey() {
 	if (!key["DOWN"]) {
 		if (state == sit) state = stand;
 	}
+	if (key["RIGHT"] && key["LEFT"]) {
+		if (state == run) {
+			state = stand;
+			dx = 0;
+		}
+
+	}
 
 	key["RIGHT"] = false;
 	key["LEFT"] = false;
