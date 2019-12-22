@@ -9,7 +9,7 @@ class Animation {
 public:
 	std::vector<IntRect> frames, framesFlip; //массив кадров обычный и с повернутыми изображени€ми
 	float frameSpeed, currentFrame;
-	bool flip, isPlaying;
+	bool flip, isPlaying, loop;
 	Sprite sprite;
 
 	Animation();
@@ -21,6 +21,7 @@ Animation::Animation()
 	currentFrame = 0;
 	isPlaying = true;
 	flip = false;
+	loop = true;
 }
 
 
@@ -29,8 +30,13 @@ void Animation::tick(float time) {//проигрывание анимации
 
 	currentFrame += frameSpeed * time;
 
-	if (currentFrame >= frames.size())
+	if (currentFrame > frames.size()) {
 		currentFrame -= frames.size();
+		if (!loop) {
+			isPlaying = false;
+			return;
+		}
+	}
 
 	int i = currentFrame;
 	sprite.setTextureRect(frames[i]);
@@ -50,7 +56,7 @@ public:
 		animationList.clear();
 	}
 
-	void createAnim(std::string name, Texture& tex, int x, int y, int w, int h, int count, float speed, int step);
+	void createAnim(std::string name, Texture& tex, int x, int y, int w, int h, int count, float speed, int step, bool LOOP);
 
 	void drawAnim(RenderWindow& win, int x, int y);//вывод анимации в координату x,y
 
@@ -75,9 +81,10 @@ public:
 	float getW() { return animationList[currentAnim].frames[0].width; }
 };
 
-void AnimationManager::createAnim(std::string name, Texture& texture, int x, int y, int w, int h, int count, float speed, int step = 0) {
+void AnimationManager::createAnim(std::string name, Texture& texture, int x, int y, int w, int h, int count, float speed, int step = 0, bool LOOP = true) {
 	Animation a;
 	a.frameSpeed = speed;
+	a.loop = LOOP;
 	a.sprite.setTexture(texture);
 	a.sprite.setOrigin(0, h);
 
@@ -92,9 +99,6 @@ void AnimationManager::createAnim(std::string name, Texture& texture, int x, int
 
 void AnimationManager::drawAnim(RenderWindow& win, int x = 0, int y = 0) {
 	animationList[currentAnim].sprite.setPosition(x, y);
-	animationList[currentAnim].sprite.setScale(2.f, 2.f);//увеличивает масштаб в 2 раза
-														 //дл€ разных разрешений может быть разный мастштаб
-
 	win.draw(animationList[currentAnim].sprite);
 }
 
