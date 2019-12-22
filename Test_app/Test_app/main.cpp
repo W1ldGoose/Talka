@@ -17,7 +17,7 @@ int main()
 
 	AnimationManager anim;
 
-	anim.loadFromXML("source/test_sprite.xml", test);
+	anim.loadFromXML("source/hero.xml", test);
 	Clock clock;
 	 
 	Player player(anim,lvl, 100, 100);

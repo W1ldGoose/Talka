@@ -1,0 +1,99 @@
+<!DOCTYPE SpriteDecomposer>
+<sprites image="knight.png" transparentColor="FFFFFF">
+ <animation title="stand" delay="200">
+  <cut w="19" x="14" y="7" h="29" row="1" col="1"/>
+  <cut w="17" x="66" y="7" h="29" row="1" col="1"/>
+  <cut w="19" x="115" y="7" h="29" row="1" col="1"/>
+  <cut w="20" x="163" y="7" h="29" row="1" col="1"/>
+ </animation>
+ <animation title="sit" delay="200">
+  <cut w="19" x="216" y="15" h="21" row="1" col="1"/>
+  <cut w="20" x="265" y="14" h="22" row="1" col="1"/>
+  <cut w="19" x="315" y="15" h="21" row="1" col="1"/>
+  <cut w="17" x="17" y="52" h="21" row="1" col="1"/>
+ </animation>
+ <animation title="run" delay="150">
+  <cut w="20" x="67" y="45" h="28" row="1" col="1"/>
+  <cut w="23" x="217" y="45" h="28" row="1" col="1"/>
+  <cut w="20" x="116" y="46" h="27" row="1" col="1"/>
+  <cut w="20" x="266" y="46" h="27" row="1" col="1"/>
+  <cut w="20" x="166" y="48" h="25" row="1" col="1"/>
+  <cut w="20" x="316" y="48" h="25" row="1" col="1"/>
+ </animation>
+ <animation title="jump+falling" delay="150">
+  <cut w="21" x="164" y="79" h="23" row="1" col="1"/>
+  <cut w="19" x="117" y="81" h="27" row="1" col="1"/>
+  <cut w="15" x="218" y="82" h="20" row="1" col="1"/>
+  <cut w="23" x="264" y="84" h="17" row="1" col="1"/>
+  <cut w="18" x="320" y="84" h="20" row="1" col="1"/>
+  <cut w="23" x="14" y="124" h="17" row="1" col="1"/>
+  <cut w="17" x="68" y="112" h="31" row="1" col="1"/>
+  <cut w="17" x="118" y="113" h="30" row="1" col="1"/>
+ </animation>
+ <animation title="jump" delay="150">
+  <cut w="19" x="117" y="81" h="27" row="1" col="1"/>
+  <cut w="21" x="164" y="79" h="23" row="1" col="1"/>
+  <cut w="15" x="218" y="82" h="20" row="1" col="1"/>
+  <cut w="23" x="264" y="84" h="17" row="1" col="1"/>
+  <cut w="18" x="320" y="84" h="20" row="1" col="1"/>
+  <cut w="23" x="14" y="124" h="17" row="1" col="1"/>
+ </animation>
+ <animation title="falling" delay="200">
+  <cut w="17" x="68" y="112" h="31" row="1" col="1"/>
+  <cut w="17" x="118" y="113" h="30" row="1" col="1"/>
+ </animation>
+ <animation title="glide" delay="200">
+  <cut w="34" x="155" y="132" h="15" row="1" col="1"/>
+  <cut w="34" x="205" y="132" h="15" row="1" col="1"/>
+  <cut w="34" x="255" y="131" h="16" row="1" col="1"/>
+  <cut w="30" x="309" y="130" h="17" row="1" col="1"/>
+  <cut w="22" x="15" y="167" h="17" row="1" col="1"/>
+ </animation>
+ <animation title="climb" delay="150">
+  <cut w="13" x="72" y="151" h="34" row="1" col="1"/>
+  <cut w="13" x="122" y="151" h="34" row="1" col="1"/>
+  <cut w="15" x="170" y="151" h="34" row="1" col="1"/>
+  <cut w="14" x="221" y="151" h="34" row="1" col="1"/>
+  <cut w="16" x="271" y="154" h="29" row="1" col="1"/>
+  <cut w="15" x="321" y="155" h="26" row="1" col="1"/>
+  <cut w="15" x="20" y="193" h="24" row="1" col="1"/>
+  <cut w="14" x="71" y="191" h="24" row="1" col="1"/>
+  <cut w="15" x="121" y="191" h="24" row="1" col="1"/>
+ </animation>
+ <animation title="fight1" delay="150">
+  <cut w="27" x="7" y="236" h="22" row="1" col="1"/>
+  <cut w="25" x="58" y="238" h="20" row="1" col="1"/>
+  <cut w="34" x="115" y="222" h="36" row="1" col="1"/>
+  <cut w="27" x="165" y="222" h="36" row="1" col="1"/>
+  <cut w="19" x="215" y="226" h="32" row="1" col="1"/>
+  <cut w="18" x="265" y="232" h="26" row="1" col="1"/>
+ </animation>
+ <animation title="fight2" delay="150">
+  <cut w="18" x="315" y="231" h="27" row="1" col="1"/>
+  <cut w="20" x="13" y="268" h="27" row="1" col="1"/>
+  <cut w="38" x="60" y="266" h="29" row="1" col="1"/>
+  <cut w="32" x="102" y="274" h="21" row="1" col="1"/>
+  <cut w="31" x="152" y="273" h="22" row="1" col="1"/>
+ </animation>
+ <animation title="fight3" delay="150">
+  <cut w="20" x="219" y="269" h="26" row="1" col="1"/>
+  <cut w="20" x="270" y="269" h="26" row="1" col="1"/>
+  <cut w="48" x="302" y="272" h="23" row="1" col="1"/>
+  <cut w="31" x="3" y="313" h="19" row="1" col="1"/>
+  <cut w="34" x="50" y="312" h="20" row="1" col="1"/>
+  <cut w="34" x="100" y="312" h="20" row="1" col="1"/>
+ </animation>
+ <animation title="block" delay="200">
+  <cut w="21" x="166" y="308" h="24" row="1" col="1"/>
+  <cut w="18" x="217" y="308" h="24" row="1" col="1"/>
+  <cut w="19" x="265" y="308" h="24" row="1" col="1"/>
+  <cut w="21" x="316" y="308" h="24" row="1" col="1"/>
+ </animation>
+ <animation title="dead" delay="250">
+  <cut w="19" x="65" y="345" h="24" row="1" col="1"/>
+  <cut w="20" x="116" y="347" h="22" row="1" col="1"/>
+  <cut w="17" x="168" y="351" h="18" row="1" col="1"/>
+  <cut w="17" x="268" y="351" h="18" row="1" col="1"/>
+  <cut w="14" x="221" y="352" h="17" row="1" col="1"/>
+ </animation>
+</sprites>
