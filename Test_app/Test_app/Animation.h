@@ -72,7 +72,7 @@ public:
 
 	void play() { animationList[currentAnim].isPlaying = true;}//возобновление -//-
 
-	//void play(std::string name) { animationList[name].isPlaying = true; }
+	void play(std::string name) { animationList[name].isPlaying = true; }
 
 	bool isPlaying() { return animationList[currentAnim].isPlaying;}
 
