@@ -2,6 +2,7 @@
 #include "Animation.h"
 #include "Player.h"
 #include "Level.h"
+#include "View.h"
 using namespace sf;
 
 int main()
@@ -10,7 +11,9 @@ int main()
 	lvl.LoadFromFile("LEVEL_0.tmx");
 	Object pl = lvl.GetObject("PLAYER");
 
-	RenderWindow window(sf::VideoMode(600, 400), "SFML works!");
+	RenderWindow window(sf::VideoMode(600, 400), "Gayme");
+	view.reset(FloatRect(0, 0, 400, 260));
+
 	Texture test;
 
 	test.loadFromFile("files/knight.png");
@@ -41,6 +44,9 @@ int main()
 		if (Keyboard::isKeyPressed(Keyboard::Down)) player.key["DOWN"] = true;
 
 		anim.tick(time);
+		playerTracking(player.x, player.y);
+		viewMap(time);
+		window.setView(view);
 		window.clear();
 		lvl.Draw(window);
 		player.draw(window);
