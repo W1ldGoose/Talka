@@ -59,6 +59,11 @@ C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(42,12): warnin
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(47,13): warning C4305: =: усечение из "double" в "float"
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(89,20): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(105,21): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(25,14): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(22,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(25,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(28,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(31,21): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(28,14): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Level.h(321): warning C4715: Level::GetObject: значение возвращается не при всех путях выполнения
+  LINK : не найден или не выполнена сборка C:\Users\wildg\source\repos\Platformer\Test_app\Debug\Test_app.exe при последней инкрементной компоновке; выполняется полная компоновка
   Test_app.vcxproj -> C:\Users\wildg\source\repos\Platformer\Test_app\Debug\Test_app.exe
