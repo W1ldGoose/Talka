@@ -6,7 +6,7 @@ class Player : public Entity {
 public:
 
 	bool onFloor = true, fight;
-	enum { stand, run, sit, jump } state;
+	enum { stand, run, sit, jump, fight1, fight2, fight3, dead, climb, block } state;
 
 	std::map<std::string, bool> key;
 
@@ -17,10 +17,10 @@ public:
 	void collision(int num);
 
 	void update(float time);
-	Player(AnimationManager& a,Level& lev, int x, int y);
+	Player(AnimationManager& a, Level& lev, int x, int y);
 };
 
-Player::Player(AnimationManager& a,Level& lev, int x, int y) : Entity(a, x, y) {
+Player::Player(AnimationManager& a, Level& lev, int x, int y) : Entity(a, x, y) {
 	option("PLAYER", 0, 100, "stand");
 	state = stand;
 	obj = lev.GetAllObjects();
@@ -44,7 +44,9 @@ void Player::CheckKey() {
 	}
 	if (key["UP"]) {
 		if (state == stand || state == run) {
-			dy = -0.3; state = jump;
+			dy = -0.3;
+			state = jump;
+			anim.play("jump");
 		}
 
 	}
@@ -68,10 +70,17 @@ void Player::CheckKey() {
 		}
 
 	}
-
+	if (key["F"]) {
+		if (state != run)
+			fight = true;
+	}
+	if (!key["F"])
+	{
+		fight = false;
+	}
 	key["RIGHT"] = false;
 	key["LEFT"] = false;
-	//key["F"] = false;
+	key["F"] = false;
 	key["UP"] = false;
 	key["DOWN"] = false;
 }
@@ -81,6 +90,16 @@ void Player::Animation(float time)
 	if (state == run) anim.set("run");
 	if (state == jump) anim.set("jump");
 	if (state == sit) anim.set("sit");
+
+	if (hit) {
+		timer += time;
+		if (timer > 800) { hit = false; timer = 0; }
+		anim.set("block");
+	}
+
+	if (fight) {
+		anim.set("fight1");
+	}
 
 	if (dir) anim.flip();
 	anim.tick(time);
