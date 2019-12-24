@@ -16,7 +16,7 @@ View playerTracking(float x, float y, std::vector<Sprite>& back) {
 	int tmp = 1;
 	for (it = back.rbegin(); it != back.rend() - 1; it++) {
 		//if (x > 320 && x < 550)//???
-			it->setPosition(-x / (tmp * 6), 1);
+			it->setPosition(-x/(tmp * 6), 0);
 		tmp++;
 	}
 	view.setCenter(tmpX+50, tmpY);
