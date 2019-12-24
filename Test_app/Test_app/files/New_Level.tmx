@@ -1246,6 +1246,6 @@
   <object id="53" name="solid" x="937" y="180" width="28" height="207"/>
   <object id="54" name="thorn" x="800" y="384" width="97" height="31"/>
   <object id="59" name="solid" x="213" y="337" width="85" height="23"/>
-  <object id="62" name="enemy" x="672" y="324" width="32" height="31"/>
+  <object id="62" name="enemy" x="600" y="324" width="32" height="31"/>
  </objectgroup>
 </map>

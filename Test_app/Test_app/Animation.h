@@ -99,6 +99,7 @@ void AnimationManager::createAnim(std::string name, Texture& texture, int x, int
 
 void AnimationManager::drawAnim(RenderWindow& win, int x = 0, int y = 0) {
 	animationList[currentAnim].sprite.setPosition(x, y);
+	animationList[currentAnim].sprite.setScale(2.f, 2.f);//увеличивает масштаб в 2 раза
 	win.draw(animationList[currentAnim].sprite);
 }
 
