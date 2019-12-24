@@ -59,20 +59,23 @@ C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(42,12): warnin
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(47,13): warning C4305: =: усечение из "double" в "float"
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(108,20): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Player.h(124,21): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(22,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(25,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(28,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(31,21): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,53): warning C4244: аргумент: преобразование "T" в "int", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,53): warning C4244:         with
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,53): warning C4244:         [
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,53): warning C4244:             T=float
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,53): warning C4244:         ]
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,39): warning C4244: аргумент: преобразование "T" в "int", возможна потеря данных
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,39): warning C4244:         with
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,39): warning C4244:         [
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,39): warning C4244:             T=float
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(26,39): warning C4244:         ]
-C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(28,14): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(29,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(32,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(35,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(38,21): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\View.h(44,19): warning C4305: аргумент: усечение из "double" в "float"
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,54): warning C4244: аргумент: преобразование "T" в "int", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,54): warning C4244:         with
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,54): warning C4244:         [
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,54): warning C4244:             T=float
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,54): warning C4244:         ]
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,40): warning C4244: аргумент: преобразование "T" в "int", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,40): warning C4244:         with
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,40): warning C4244:         [
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,40): warning C4244:             T=float
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(23,40): warning C4244:         ]
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(29,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(37,14): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\main.cpp(74,21): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\wildg\source\repos\Platformer\Test_app\Test_app\Level.h(337): warning C4715: Level::GetObject: значение возвращается не при всех путях выполнения
   Test_app.vcxproj -> C:\Users\wildg\source\repos\Platformer\Test_app\Debug\Test_app.exe
