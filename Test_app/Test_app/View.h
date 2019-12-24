@@ -5,14 +5,21 @@ using namespace sf;
 
 View view;
 
-View playerTracking(float x, float y) {
+View playerTracking(float x, float y, std::vector<Sprite>& back) {
 	float tmpX = x, tmpY = y;
+	std::vector<Sprite>::reverse_iterator it;
 	//чтобы не видеть края карты
-	if (x < 100) tmpX = 100;
-	if (x > 600) tmpX = 600;
-	if (y < 150) tmpY = 150;
-	if (y > 500) tmpY = 500;
-	view.setCenter(tmpX + 50, tmpY);
+	if (x < 320) tmpX = 320;
+	if (x > 550) tmpX = 550;
+	if (y < 200) tmpY = 200;
+	if (y > 280) tmpY = 280;
+	int tmp = 1;
+	for (it = back.rbegin(); it != back.rend() - 1; it++) {
+		//if (x > 320 && x < 550)//???
+			it->setPosition(-x / (tmp * 6), 1);
+		tmp++;
+	}
+	view.setCenter(tmpX+50, tmpY);
 	return view;
 }
 
@@ -30,4 +37,11 @@ void viewMap(float time) { //функция для перемещения камеры по карте
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
 		view.move(0, -0.1 * time);//скроллим карту вправо
 	}
+}
+
+void changeView() {
+	if (Keyboard::isKeyPressed(Keyboard::PageUp))
+		view.zoom(1.0009);
+	if (Keyboard::isKeyPressed(Keyboard::PageDown))
+		view.zoom(0.9990f);
 }
