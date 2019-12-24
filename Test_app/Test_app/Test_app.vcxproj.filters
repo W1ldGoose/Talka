@@ -18,27 +18,21 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinyxmlparser.cpp">
+    <ClCompile Include="tinystr.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinystr.cpp">
+    <ClCompile Include="tinyxml.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinyxml.cpp">
+    <ClCompile Include="tinyxmlerror.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinyxmlerror.cpp">
+    <ClCompile Include="tinyxmlparser.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Game\Test_app\source\TinyXML\tinyxml.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Game\Test_app\source\TinyXML\tinystr.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
@@ -55,6 +49,12 @@
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="tinystr.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml.h">
+      <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "source/TinyXML/tinyxml.h"
+#include "tinyxml.h"
 using namespace sf;
 
 //класс анимации, хранит одну анимацию

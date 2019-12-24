@@ -5,7 +5,7 @@
 #include <map>
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "source/TinyXML/tinyxml.h"
+#include "tinyxml.h"
 
 struct Object
 {
@@ -36,7 +36,9 @@ public:
 	std::vector<Object> GetAllObjects();
 	void Draw(sf::RenderWindow& window);
 	sf::Vector2i GetTileSize();
-	sf::Image background;
+	//sf::Image background;
+	std::vector <sf::Sprite> background;
+	std::vector <sf::Texture> backTextures;
 
 private:
 	int width, height, tileWidth, tileHeight, offsetx, offsety;
@@ -106,14 +108,28 @@ bool Level::LoadFromFile(std::string filename)
 		return false;
 	}
 
+	////////////////////////////////////////////////////////
+
+	//работа с изображениями
 	TiXmlElement* imageElement;
 	imageElement = map->FirstChildElement("imagelayer");
-	//offsetx = atoi(map->Attribute("offsetx"));
-	//offsety = atoi(map->Attribute("offsety"));
-	image = imageElement->FirstChildElement("image");
-	imagepath = image->Attribute("source");
+	sf::Image tmpImg;
+	sf::Texture tmpText;
 
-	background.loadFromFile(imagepath);
+	while (imageElement) {
+		image = imageElement->FirstChildElement("image");
+		std::string backgroundpath = image->Attribute("source");
+
+		if (!tmpImg.loadFromFile(backgroundpath))
+		{
+			std::cout << "Failed to load image." << std::endl;
+			return false;
+		}
+
+		tmpText.loadFromFile(backgroundpath);
+		backTextures.push_back(tmpText);
+		imageElement = imageElement->NextSiblingElement("imagelayer");
+	}
 
 
 	img.createMaskFromColor(sf::Color(255, 255, 255));

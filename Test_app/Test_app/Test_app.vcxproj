@@ -139,20 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinystr.cpp" />
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinyxml.cpp" />
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinyxmlerror.cpp" />
-    <ClCompile Include="..\..\..\Game\Test_app\source\TinyXML\tinyxmlparser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="tinystr.cpp" />
+    <ClCompile Include="tinyxml.cpp" />
+    <ClCompile Include="tinyxmlerror.cpp" />
+    <ClCompile Include="tinyxmlparser.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Game\Test_app\source\TinyXML\tinystr.h" />
-    <ClInclude Include="..\..\..\Game\Test_app\source\TinyXML\tinyxml.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="tinystr.h" />
+    <ClInclude Include="tinyxml.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
