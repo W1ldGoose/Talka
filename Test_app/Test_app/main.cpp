@@ -3,6 +3,13 @@
 #include "Player.h"
 #include "Level.h"
 #include "View.h"
+<<<<<<< Updated upstream
+=======
+#include <list>
+#include "Enemy.h"
+#include "HealthBar.h"
+
+>>>>>>> Stashed changes
 using namespace sf;
 
 int main()
@@ -19,6 +26,18 @@ int main()
 	animPlayer.loadFromXML("files/hero.xml", textPlayer);
 	Object pl = lvl.GetObject("PLAYER");
 	Player player(animPlayer, lvl, pl.rect.left, pl.rect.top);
+<<<<<<< Updated upstream
+=======
+	player.y = player.y - player.h;
+	player.w = player.w * 2;
+
+	HealthBar healthBar;
+
+	std::vector<Object> enem = lvl.GetObjects("enemy");
+	for (int i = 0; i < enem.size(); i++) {
+		entities.push_back(new enemy(animEnemy, lvl, enem[i].rect.left, enem[i].rect.top));
+	}
+>>>>>>> Stashed changes
 
 	Clock clock;
 	 
@@ -106,7 +125,24 @@ int main()
 		}
 		if (Keyboard::isKeyPressed(Keyboard::F)) player.key["F"] = true;
 
+<<<<<<< Updated upstream
+=======
+				if (currentEnemy->health <= 0) continue;
+
+				if (std::abs(player.x - currentEnemy->x) < 50 && std::abs(player.y - currentEnemy->y) < 30)
+					if (player.fight) { currentEnemy->dx = 0; currentEnemy->health -= 5; }
+				if(player.getRect().intersects(currentEnemy->getRect()))
+					if (!player.hit) {
+						player.health -= 5; player.hit = true;//прописать анимацию при получении урона
+						if (player.dir) player.x += 10; else player.x -= 10;
+					}
+
+			}
+			if ((*it)->Name == "Food")
+		}
+>>>>>>> Stashed changes
 		player.update(time);
+		healthBar.update(player.health);
 		viewMap(time);
 		changeView();
 		window.setView(view);
@@ -117,6 +153,7 @@ int main()
 		}
 		lvl.Draw(window);
 		player.draw(window);
+		healthBar.draw(window);
 		window.display();
 	}
 	return 0;

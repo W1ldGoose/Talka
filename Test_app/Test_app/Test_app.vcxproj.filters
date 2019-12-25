@@ -56,5 +56,8 @@
     <ClInclude Include="tinyxml.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
