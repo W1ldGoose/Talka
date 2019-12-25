@@ -152,8 +152,6 @@ int main()
 
 				if(player.getRect().intersects(currentEnemy->getRect()))
 					if (!player.hit) {
-
-					else if (!player.hit) {
 						player.health -= 5; player.hit = true;//ïðîïèñàòü àíèìàöèþ ïðè ïîëó÷åíèè óðîíà
 						if (player.dir) player.x += 10; else player.x -= 10;
 					}
