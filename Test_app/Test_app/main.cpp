@@ -3,13 +3,11 @@
 #include "Player.h"
 #include "Level.h"
 #include "View.h"
-<<<<<<< Updated upstream
-=======
 #include <list>
 #include "Enemy.h"
 #include "HealthBar.h"
 
->>>>>>> Stashed changes
+
 using namespace sf;
 
 int main()
@@ -20,14 +18,23 @@ int main()
 	Level lvl;
 	lvl.LoadFromFile("files/New_Level.tmx");
 	
-	Texture textPlayer;
+	std::list<Entity*>  entities;
+	std::list<Entity*>::iterator  it = entities.begin();
+
+	Texture textPlayer, textEnemy;
+
 	textPlayer.loadFromFile("files/knight.png");
-	AnimationManager animPlayer;
+	textEnemy.loadFromFile("files/Skeleton.png");
+
+	AnimationManager animPlayer, animEnemy;
+
 	animPlayer.loadFromXML("files/hero.xml", textPlayer);
+	animPlayer.animationList["jump"].loop = 0;
+	animEnemy.loadFromXML("files/enemy.xml", textEnemy);
+	animEnemy.animationList["dead"].loop = 0;
+
 	Object pl = lvl.GetObject("PLAYER");
 	Player player(animPlayer, lvl, pl.rect.left, pl.rect.top);
-<<<<<<< Updated upstream
-=======
 	player.y = player.y - player.h;
 	player.w = player.w * 2;
 
@@ -37,10 +44,7 @@ int main()
 	for (int i = 0; i < enem.size(); i++) {
 		entities.push_back(new enemy(animEnemy, lvl, enem[i].rect.left, enem[i].rect.top));
 	}
->>>>>>> Stashed changes
 
-	Clock clock;
-	 
 	std::vector <sf::Sprite> back;
 	Sprite tmpSprite;
 	for (int i = 0; i < lvl.backTextures.size(); i++) {
@@ -65,7 +69,7 @@ int main()
 	menu3.setPosition(100, 250);
 
 
-	/////ìåíþ
+	/////Ã¬Ã¥Ã­Ã¾
 	while (Menu)
 	{
 		menu1.setColor(Color::White);
@@ -92,13 +96,14 @@ int main()
 		window.display();
 	}
 
+	Clock clock;
 	view.reset(FloatRect(0, 0, 720, 360));
 	while (window.isOpen()) {
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
 
 		time = time / 600;
-		if (time > 40) time = 40;
+		if (time > 60) time = 60;
 
 		Event event;
 		while (window.pollEvent(event)) {
@@ -106,7 +111,7 @@ int main()
 				window.close();
 		}
 
-		//êàìåðà ñëåäèò çà èãðîêîì, êîãäà îí äâèãàåòñÿ
+		//ÃªÃ Ã¬Ã¥Ã°Ã  Ã±Ã«Ã¥Ã¤Ã¨Ã² Ã§Ã  Ã¨Ã£Ã°Ã®ÃªÃ®Ã¬, ÃªÃ®Ã£Ã¤Ã  Ã®Ã­ Ã¤Ã¢Ã¨Ã£Ã Ã¥Ã²Ã±Ã¿
 		if (Keyboard::isKeyPressed(Keyboard::Left)) {
 			player.key["LEFT"] = true;
 			playerTracking(player.x, player.y, back);
@@ -124,23 +129,37 @@ int main()
 			playerTracking(player.x, player.y, back);
 		}
 		if (Keyboard::isKeyPressed(Keyboard::F)) player.key["F"] = true;
+		
+		for (it = entities.begin(); it != entities.end();)
+		{
+			Entity* b = *it;
+			b->update(time);
+			if (b->life == false) { it = entities.erase(it); delete b; }
+			else it++;
+		}
 
-<<<<<<< Updated upstream
-=======
+		for (it = entities.begin(); it != entities.end(); it++)
+		{
+			//1. Ã¢Ã°Ã Ã£Ã¨
+			if ((*it)->Name == "enemy")
+			{
+				Entity* currentEnemy = *it;
+
 				if (currentEnemy->health <= 0) continue;
 
 				if (std::abs(player.x - currentEnemy->x) < 50 && std::abs(player.y - currentEnemy->y) < 30)
 					if (player.fight) { currentEnemy->dx = 0; currentEnemy->health -= 5; }
+
 				if(player.getRect().intersects(currentEnemy->getRect()))
 					if (!player.hit) {
-						player.health -= 5; player.hit = true;//ïðîïèñàòü àíèìàöèþ ïðè ïîëó÷åíèè óðîíà
+
+					else if (!player.hit) {
+						player.health -= 5; player.hit = true;//Ã¯Ã°Ã®Ã¯Ã¨Ã±Ã Ã²Ã¼ Ã Ã­Ã¨Ã¬Ã Ã¶Ã¨Ã¾ Ã¯Ã°Ã¨ Ã¯Ã®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¨ Ã³Ã°Ã®Ã­Ã 
 						if (player.dir) player.x += 10; else player.x -= 10;
 					}
 
 			}
-			if ((*it)->Name == "Food")
 		}
->>>>>>> Stashed changes
 		player.update(time);
 		healthBar.update(player.health);
 		viewMap(time);
@@ -152,6 +171,8 @@ int main()
 			window.draw(back[i]);
 		}
 		lvl.Draw(window);
+		for (it = entities.begin(); it != entities.end(); it++)
+			(*it)->draw(window);
 		player.draw(window);
 		healthBar.draw(window);
 		window.display();

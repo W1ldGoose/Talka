@@ -47,6 +47,7 @@ void Player::CheckKey() {
 			dy = -0.3;
 			state = jump;
 			anim.play("jump");
+			anim.animationList["jump"].currentFrame = 0;
 		}
 
 	}
@@ -121,7 +122,7 @@ void Player::collision(int num) {
 void Player::update(float time) {
 	CheckKey();
 	Animation(time);
-	dy += 0.0005 * time;
+	dy += 0.0004 * time;
 
 	x += dx * time;
 	collision(0);
