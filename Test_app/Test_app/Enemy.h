@@ -1,20 +1,26 @@
 #pragma once
 #include "Entity.h"
 
-class ENEMY : public Entity
+class enemy : public Entity
 {
 public:
 
-	ENEMY(AnimationManager& a, Level& lev, int x, int y) :Entity(a, x, y)
+	enemy(AnimationManager& a, Level& lev, int x, int y) :Entity(a, x, y)
 	{
-		option("Enemy", 0.01, 15, "move");
+		option("enemy", 0.02, 15, "walk");
 	}
 
 	void update(float time)
 	{
 		x += dx * time;
 		timer += time;
-		if (timer > 3200) { dx *= -1; timer = 0; }
+		if (timer > 3200)
+		{
+			dx *= -1;
+			timer = 0;
+			dir = !dir;
+			anim.flip(dir);
+		}
 
 		if (health <= 0) {
 			anim.set("dead"); dx = 0;

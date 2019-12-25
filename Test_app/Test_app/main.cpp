@@ -3,6 +3,9 @@
 #include "Player.h"
 #include "Level.h"
 #include "View.h"
+#include <list>
+#include "Enemy.h"
+
 using namespace sf;
 
 int main()
@@ -13,14 +16,31 @@ int main()
 	Level lvl;
 	lvl.LoadFromFile("files/New_Level.tmx");
 	
-	Texture textPlayer;
+	std::list<Entity*>  entities;
+	std::list<Entity*>::iterator  it = entities.begin();
+
+	Texture textPlayer, textEnemy;
+
 	textPlayer.loadFromFile("files/knight.png");
-	AnimationManager animPlayer;
+	textEnemy.loadFromFile("files/Skeleton.png");
+
+	AnimationManager animPlayer, animEnemy;
+
 	animPlayer.loadFromXML("files/hero.xml", textPlayer);
+	animPlayer.animationList["jump"].loop = 0;
+	animEnemy.loadFromXML("files/enemy.xml", textEnemy);
+	animEnemy.animationList["dead"].loop = 0;
+
 	Object pl = lvl.GetObject("PLAYER");
 	Player player(animPlayer, lvl, pl.rect.left, pl.rect.top);
+	player.y = player.y - player.h;
+	player.w = player.w * 2;
 
-	Clock clock;
+	std::vector<Object> enem = lvl.GetObjects("enemy");
+	for (int i = 0; i < enem.size(); i++) {
+		entities.push_back(new enemy(animEnemy, lvl, enem[i].rect.left, enem[i].rect.top));
+	}
+
 	 
 	std::vector <sf::Sprite> back;
 	Sprite tmpSprite;
@@ -73,13 +93,14 @@ int main()
 		window.display();
 	}
 
+	Clock clock;
 	view.reset(FloatRect(0, 0, 720, 360));
 	while (window.isOpen()) {
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
 
 		time = time / 600;
-		if (time > 40) time = 40;
+		if (time > 60) time = 60;
 
 		Event event;
 		while (window.pollEvent(event)) {
@@ -105,7 +126,34 @@ int main()
 			playerTracking(player.x, player.y, back);
 		}
 		if (Keyboard::isKeyPressed(Keyboard::F)) player.key["F"] = true;
+		
+		for (it = entities.begin(); it != entities.end();)
+		{
+			Entity* b = *it;
+			b->update(time);
+			if (b->life == false) { it = entities.erase(it); delete b; }
+			else it++;
+		}
 
+		for (it = entities.begin(); it != entities.end(); it++)
+		{
+			//1. враги
+			if ((*it)->Name == "enemy")
+			{
+				Entity* currentEnemy = *it;
+
+				if (currentEnemy->health <= 0) continue;
+
+				if (std::abs(player.x - currentEnemy->x) < 50 && std::abs(player.y - currentEnemy->y) < 30)
+					if (player.fight) { currentEnemy->dx = 0; currentEnemy->health -= 5; }
+					else if (!player.hit) {
+						player.health -= 5; player.hit = true;//прописать анимацию при получении урона
+						if (player.dir) player.x += 10; else player.x -= 10;
+					}
+
+			}
+
+		}
 		player.update(time);
 		viewMap(time);
 		changeView();
@@ -116,6 +164,8 @@ int main()
 			window.draw(back[i]);
 		}
 		lvl.Draw(window);
+		for (it = entities.begin(); it != entities.end(); it++)
+			(*it)->draw(window);
 		player.draw(window);
 		window.display();
 	}
