@@ -5,6 +5,8 @@
 #include "View.h"
 #include <list>
 #include "Enemy.h"
+#include "HealthBar.h"
+
 
 using namespace sf;
 
@@ -36,12 +38,13 @@ int main()
 	player.y = player.y - player.h;
 	player.w = player.w * 2;
 
+	HealthBar healthBar;
+
 	std::vector<Object> enem = lvl.GetObjects("enemy");
 	for (int i = 0; i < enem.size(); i++) {
 		entities.push_back(new enemy(animEnemy, lvl, enem[i].rect.left, enem[i].rect.top));
 	}
 
-	 
 	std::vector <sf::Sprite> back;
 	Sprite tmpSprite;
 	for (int i = 0; i < lvl.backTextures.size(); i++) {
@@ -66,7 +69,7 @@ int main()
 	menu3.setPosition(100, 250);
 
 
-	/////ìåíþ
+	/////Ã¬Ã¥Ã­Ã¾
 	while (Menu)
 	{
 		menu1.setColor(Color::White);
@@ -108,7 +111,7 @@ int main()
 				window.close();
 		}
 
-		//êàìåðà ñëåäèò çà èãðîêîì, êîãäà îí äâèãàåòñÿ
+		//ÃªÃ Ã¬Ã¥Ã°Ã  Ã±Ã«Ã¥Ã¤Ã¨Ã² Ã§Ã  Ã¨Ã£Ã°Ã®ÃªÃ®Ã¬, ÃªÃ®Ã£Ã¤Ã  Ã®Ã­ Ã¤Ã¢Ã¨Ã£Ã Ã¥Ã²Ã±Ã¿
 		if (Keyboard::isKeyPressed(Keyboard::Left)) {
 			player.key["LEFT"] = true;
 			playerTracking(player.x, player.y, back);
@@ -137,7 +140,7 @@ int main()
 
 		for (it = entities.begin(); it != entities.end(); it++)
 		{
-			//1. âðàãè
+			//1. Ã¢Ã°Ã Ã£Ã¨
 			if ((*it)->Name == "enemy")
 			{
 				Entity* currentEnemy = *it;
@@ -146,15 +149,19 @@ int main()
 
 				if (std::abs(player.x - currentEnemy->x) < 50 && std::abs(player.y - currentEnemy->y) < 30)
 					if (player.fight) { currentEnemy->dx = 0; currentEnemy->health -= 5; }
+
+				if(player.getRect().intersects(currentEnemy->getRect()))
+					if (!player.hit) {
+
 					else if (!player.hit) {
-						player.health -= 5; player.hit = true;//ïðîïèñàòü àíèìàöèþ ïðè ïîëó÷åíèè óðîíà
+						player.health -= 5; player.hit = true;//Ã¯Ã°Ã®Ã¯Ã¨Ã±Ã Ã²Ã¼ Ã Ã­Ã¨Ã¬Ã Ã¶Ã¨Ã¾ Ã¯Ã°Ã¨ Ã¯Ã®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¨ Ã³Ã°Ã®Ã­Ã 
 						if (player.dir) player.x += 10; else player.x -= 10;
 					}
 
 			}
-
 		}
 		player.update(time);
+		healthBar.update(player.health);
 		viewMap(time);
 		changeView();
 		window.setView(view);
@@ -167,6 +174,7 @@ int main()
 		for (it = entities.begin(); it != entities.end(); it++)
 			(*it)->draw(window);
 		player.draw(window);
+		healthBar.draw(window);
 		window.display();
 	}
 	return 0;

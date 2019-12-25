@@ -149,6 +149,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="tinystr.h" />

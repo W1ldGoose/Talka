@@ -21,7 +21,7 @@ public:
 };
 
 Player::Player(AnimationManager& a, Level& lev, int x, int y) : Entity(a, x, y) {
-	option("PLAYER", 0, 100, "stand");
+	option("PLAYER", 0, 20, "stand");
 	state = stand;
 	obj = lev.GetAllObjects();
 }
