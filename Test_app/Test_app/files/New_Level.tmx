@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0.0" orientation="orthogonal" renderorder="left-down" width="40" height="15" tilewidth="32" tileheight="32" nextobjectid="65">
- <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="465" columns="31">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="0" columns="31">
   <image source="files/tileset.png" width="992" height="498"/>
  </tileset>
  <imagelayer name="BACK_1">
-  <image source="files/background/parallax-demon-woods-bg.png" width="960" height="544"/>
+  <image source="files/background/parallax-demon-woods-bg.png"/>
  </imagelayer>
  <imagelayer name="BACK_2">
-  <image source="files/background/parallax-demon-woods-far-trees.png" width="1445" height="480"/>
+  <image source="files/background/parallax-demon-woods-far-trees.png"/>
  </imagelayer>
  <imagelayer name="BACK_3">
-  <image source="files/background/parallax-demon-woods-mid-trees.png" width="1445" height="480"/>
+  <image source="files/background/parallax-demon-woods-mid-trees.png"/>
  </imagelayer>
  <imagelayer name="BACK_4">
-  <image source="files/background/parallax-demon-woods-close-trees.png" width="1445" height="480"/>
+  <image source="files/background/parallax-demon-woods-close-trees.png"/>
  </imagelayer>
  <layer name="back_tile" width="40" height="15">
   <data>
@@ -997,9 +997,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="242"/>
    <tile gid="0"/>
-   <tile gid="242"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1246,6 +1246,11 @@
   <object id="53" name="solid" x="937" y="180" width="28" height="207"/>
   <object id="54" name="thorn" x="800" y="384" width="97" height="31"/>
   <object id="59" name="solid" x="213" y="337" width="85" height="23"/>
-  <object id="62" name="enemy" x="600" y="324" width="32" height="31"/>
+  <object id="61" name="enemy" x="600" y="324" width="32" height="31"/>
+  <object id="61" name="enemy" x="460" y="210" width="32" height="31"/>
+  <object id="62" name="coin" x="500" y="324" width="32" height="31"/>
+  <object id="63" name="coin" x="400" y="324" width="32" height="31"/>
+  <object id="64" name="coin" x="300" y="324" width="32" height="31"/>
+  <object id="65" name="coin" x="600" y="300" width="32" height="31"/>
  </objectgroup>
 </map>

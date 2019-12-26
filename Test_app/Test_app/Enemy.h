@@ -1,11 +1,11 @@
 #pragma once
 #include "Entity.h"
 
-class enemy : public Entity
+class Enemy : public Entity
 {
 public:
 
-	enemy(AnimationManager& a, Level& lev, int x, int y) :Entity(a, x, y)
+	Enemy(AnimationManager& a, Level& lev, int x, int y) :Entity(a, x, y)
 	{
 		option("enemy", 0.02, 15, "walk");
 	}

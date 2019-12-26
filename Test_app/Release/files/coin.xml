@@ -1,0 +1,11 @@
+<sprites image="knight.png" transparentColor="FFFFFF">
+ <animation title="idle" delay="150">
+  <cut w="20" x="0" y="0" h="20" row="1" col="1"/>
+  <cut w="20" x="20" y="0" h="20" row="1" col="1"/>
+  <cut w="20" x="40" y="0" h="20" row="1" col="1"/>
+  <cut w="20" x="60" y="0" h="20" row="1" col="1"/>
+  <cut w="20" x="80" y="0" h="20" row="1" col="1"/>
+  <cut w="20" x="100" y="0" h="20" row="1" col="1"/>
+  <cut w="20" x="120" y="0" h="20" row="1" col="1"/>
+  <cut w="20" x="140" y="0" h="20" row="1" col="1"/>
+ </animation>

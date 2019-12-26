@@ -1,11 +1,15 @@
 #pragma once
 #include "Entity.h"
 #include <map>
+#include <SFML/Graphics.hpp>
+
 
 class Player : public Entity {
 public:
-
-	bool onFloor = true, fight;
+	int coins;
+	bool fight;
+	Font font;
+	Text text;
 	enum { stand, run, sit, jump, fight1, fight2, fight3, dead, climb, block } state;
 
 	std::map<std::string, bool> key;
@@ -17,13 +21,22 @@ public:
 	void collision(int num);
 
 	void update(float time);
+	void DEAD(RenderWindow& window);
 	Player(AnimationManager& a, Level& lev, int x, int y);
 };
 
 Player::Player(AnimationManager& a, Level& lev, int x, int y) : Entity(a, x, y) {
 	option("PLAYER", 0, 20, "stand");
 	state = stand;
+	coins = 0;
 	obj = lev.GetAllObjects();
+	font.loadFromFile("files/pixel_font.ttf");
+	text.setFont(font);
+	text.setStyle(Text::Bold | Text::Underlined);
+	text.setString("POTRACHENO");
+	text.setOutlineThickness(3);
+	text.setCharacterSize(80);
+	text.setFillColor(Color::Red);
 }
 
 //дописать разные состояния и учесть вариант, когда клавиши не нажаты
@@ -32,14 +45,14 @@ void Player::CheckKey() {
 		dir = 1;
 		if (state == stand) {
 			state = run;
-			dx = -0.1;
+			dx = -0.15;
 		}
 	}
 	if (key["RIGHT"]) {
 		dir = 0;
 		if (state == stand) {
 			state = run;
-			dx = 0.1;
+			dx = 0.15;
 		}
 	}
 	if (key["UP"]) {
@@ -75,10 +88,7 @@ void Player::CheckKey() {
 		if (state != run)
 			fight = true;
 	}
-	if (!key["F"])
-	{
-		fight = false;
-	}
+
 	key["RIGHT"] = false;
 	key["LEFT"] = false;
 	key["F"] = false;
@@ -92,15 +102,25 @@ void Player::Animation(float time)
 	if (state == jump) anim.set("jump");
 	if (state == sit) anim.set("sit");
 
+
+	if (health <= 0) {
+		anim.set("dead"); dx = 0; dy = 0;
+
+	}
 	if (hit) {
 		timer += time;
 		if (timer > 800) { hit = false; timer = 0; }
 		anim.set("block");
 	}
-
 	if (fight) {
+		timer += time;
+		if (timer > 800) { 
+			timer = 0; 
+			fight = false;
+		}
 		anim.set("fight1");
 	}
+	
 
 	if (dir) anim.flip();
 	anim.tick(time);
@@ -116,16 +136,40 @@ void Player::collision(int num) {
 				if (dx > 0 && num == 0) { x = obj[i].rect.left - w; }
 				if (dx < 0 && num == 0) { x = obj[i].rect.left + obj[i].rect.width; }
 			}
+			if (obj[i].name == "thorn" && !hit) {
+				if (!dir)
+					dx += 0.03;
+				else dx -= 0.03;
+				hit = true;
+				y = obj[i].rect.top - h;
+				dy = -0.2;
+				health -= 1;
+			}
+
+			
 		}
+	
 }
 
 void Player::update(float time) {
+	
 	CheckKey();
 	Animation(time);
 	dy += 0.0004 * time;
 
+	if (health <= 0) {
+		 life = false;
+	}
 	x += dx * time;
 	collision(0);
 	y += dy * time;
 	collision(1);
+}
+
+void Player::DEAD(RenderWindow& window) {
+	Vector2f center= window.getView().getCenter();
+	Vector2f size = window.getView().getSize();
+
+	text.setPosition(center.x - size.x / 4-30, center.y - size.y / 4);
+	window.draw(text);
 }

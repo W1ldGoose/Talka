@@ -7,7 +7,7 @@
 
 using namespace sf;
 
-//абстрактный класс Entityn bbb   
+//абстрактный класс Entity
 class Entity
 {
 public:

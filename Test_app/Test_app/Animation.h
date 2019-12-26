@@ -51,7 +51,7 @@ public:
 	//контейнер с ключом - название анимации, и значением - класс Animation
 	std::map<std::string, Animation> animationList;
 
-	AnimationManager() {}
+	//AnimationManager() {}
 	~AnimationManager() {
 		animationList.clear();
 	}

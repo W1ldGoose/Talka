@@ -36,8 +36,6 @@ public:
 	std::vector<Object> GetAllObjects();
 	void Draw(sf::RenderWindow& window);
 	sf::Vector2i GetTileSize();
-	//sf::Image background;
-	std::vector <sf::Sprite> background;
 	std::vector <sf::Texture> backTextures;
 
 private:

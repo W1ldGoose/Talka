@@ -6,7 +6,6 @@ class HealthBar {
 	Texture txtrH;
 	Sprite sprtH;
 	int max;
-
 	RectangleShape bar;
 public:
 	void update(int playerH);

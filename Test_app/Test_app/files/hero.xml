@@ -83,9 +83,9 @@
  </animation>
  <animation title="dead" delay="250">
   <cut w="19" x="65" y="345" h="24" row="1" col="1"/>
-  <cut w="20" x="116" y="347" h="22" row="1" col="1"/>
-  <cut w="17" x="168" y="351" h="18" row="1" col="1"/>
-  <cut w="17" x="268" y="351" h="18" row="1" col="1"/>
-  <cut w="14" x="221" y="352" h="17" row="1" col="1"/>
+  <cut w="20" x="116" y="345" h="24" row="1" col="1"/>
+  <cut w="17" x="168" y="345" h="24" row="1" col="1"/>
+  <cut w="17" x="268" y="345" h="24" row="1" col="1"/>
+  <cut w="14" x="221" y="345" h="24" row="1" col="1"/>
  </animation>
 </sprites>
