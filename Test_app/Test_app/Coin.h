@@ -14,21 +14,20 @@ public:
 
 Coin::Coin(AnimationManager& anim, Level& lev, int X, int Y):Entity(anim,x,y) {
 	option("coin", 0, 10, "idle");
-	x = lev.GetObject("coin").rect.left;
-	y = lev.GetObject("coin").rect.top;
+	dy = -0.01;
+	x = X;
+	y = Y;
 }
 
 
 void Coin::update(float time)
 {
-	x += dx * time;
+	y += dy * time;
 	timer += time;
-	if (timer > 3200)
+	if (timer > 500)
 	{
-		dx *= -1;
+		dy *= -1;
 		timer = 0;
-		dir = !dir;
-		anim.flip(dir);
 	}
 
 	if (health <= 0) {

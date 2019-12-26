@@ -1248,9 +1248,10 @@
   <object id="59" name="solid" x="213" y="337" width="85" height="23"/>
   <object id="61" name="enemy" x="600" y="324" width="32" height="31"/>
   <object id="61" name="enemy" x="460" y="210" width="32" height="31"/>
-  <object id="62" name="coin" x="500" y="324" width="32" height="31"/>
-  <object id="63" name="coin" x="400" y="324" width="32" height="31"/>
-  <object id="64" name="coin" x="300" y="324" width="32" height="31"/>
-  <object id="65" name="coin" x="600" y="300" width="32" height="31"/>
+  <object id="65" name="coin" x="250" y="300" width="32" height="31"/>
+  <object id="65" name="coin" x="300" y="270" width="32" height="31"/>
+  <object id="65" name="coin" x="350" y="250" width="32" height="31"/>
+ <object id="65" name="coin" x="400" y="270" width="32" height="31"/>
+ <object id="65" name="coin" x="450" y="300" width="32" height="31"/>
  </objectgroup>
 </map>
